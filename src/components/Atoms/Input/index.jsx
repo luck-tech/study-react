@@ -1,3 +1,4 @@
+import send from "../../../assets/svg/ei-send.png";
 import React from "react";
 import styled from "styled-components";
 
@@ -6,7 +7,7 @@ const Input = () => {
     <StyledInput>
       <input type="text" placeholder="コメントする" />
       <button className="send">
-        <img src="../../../assets/ei-send.png" />
+        <img src={send} />
       </button>
     </StyledInput>
   );
