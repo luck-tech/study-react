@@ -5,7 +5,7 @@ const Input = () => {
   return (
     <StyledInput>
       <input type="text" placeholder="コメントする" />
-      <button class="send">
+      <button className="send">
         <img src="../../../assets/ei-send.png" />
       </button>
     </StyledInput>
@@ -28,6 +28,10 @@ const StyledInput = styled.div`
     background-color: #6f3f1a;
     border-radius: 0 4px 4px 0;
     border: none;
+    transition: 0.2s ease;
+    &:hover {
+      background-color: #d2b48c;
+    }
     > img {
       width: 30px;
       height: 30px;
