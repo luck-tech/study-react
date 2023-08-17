@@ -1,4 +1,4 @@
-import send from "../../../assets/svg/ei-send.png";
+import send from "../../../assets/ei-send.png";
 import React from "react";
 import styled from "styled-components";
 
