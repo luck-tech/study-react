@@ -16,7 +16,7 @@ const StyledPurchase = styled.div`
     color: #f5f5f5;
     border-radius: 4px;
     padding: 8px 20px;
-    margin-right: 5px;
+    margin-right: 10px;
     transition: 0.2s ease;
     &:hover {
       background-color: #d2b48c;
