@@ -3,10 +3,10 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "User-Icon",
+  title: "User",
   parameters: {
     backgrounds: {
-      default: "dark",
+      default: "light",
     },
   },
 };
