@@ -15,6 +15,7 @@ const Comment = () => {
 
 const StyledComment = styled.div`
   > h2 {
+    margin-top: 40px;
     font-weight: 400;
   }
 `;

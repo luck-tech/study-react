@@ -45,7 +45,7 @@ const StyledMessage = styled.p`
     margin: 0;
     font-size: 12px;
   }
-  margin: 0 0 20px;
+  margin: 0 0 40px;
   display: flex;
 `;
 

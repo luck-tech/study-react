@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import BREAKPOINT from "../../../variables/breakpoint.js";
 
 const ImgBox = () => {
   const [data, setData] = useState([]);
@@ -24,7 +25,7 @@ const ImgBox = () => {
   const targetItem = data.find((item) => item.id === targetItemId);
 
   return (
-    <div>
+    <StyledImgBox>
       {targetItem && (
         <div>
           <StyledMainImg>
@@ -37,10 +38,17 @@ const ImgBox = () => {
           </StyledSubImg>
         </div>
       )}
-    </div>
+    </StyledImgBox>
   );
 };
-
+const StyledImgBox = styled.div`
+  margin: 0 20px 0 0;
+  width: 40%;
+  @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+    margin: 0 0 20px;
+    width: 100%;
+  }
+`;
 const StyledMainImg = styled.div`
   > img {
     width: 100%;

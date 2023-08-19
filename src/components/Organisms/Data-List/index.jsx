@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Buttons from "../../Molecules/Buttons";
+import BREAKPOINT from "../../../variables/breakpoint.js";
 
 const DataList = () => {
   const [data, setData] = useState([]);
@@ -25,28 +26,26 @@ const DataList = () => {
   const targetItem = data.find((item) => item.id === targetItemId);
 
   return (
-    <div>
+    <StyledDataList>
       {targetItem && (
-        <StyledDataList>
+        <div>
           <StyledName>{targetItem.name}</StyledName>
           <StyledPrice>
             {targetItem.price}円
             <span>(別途取引手数料50円を支払う必要があります)</span>
           </StyledPrice>
           <Buttons />
-          <StyledSellerId>出品者：{targetItem.seller_id}</StyledSellerId>
-          <StyledCondition>本の状態：{targetItem.condition}</StyledCondition>
-          <StyledReceivableCampus>
-            受け取り可能キャンパス：{targetItem.receivable_campus}
-          </StyledReceivableCampus>
-          <StyledWritingState>
+          <p>出品者：{targetItem.seller_id}</p>
+          <p>本の状態：{targetItem.condition}</p>
+          <p>受け取り可能キャンパス：{targetItem.receivable_campus}</p>
+          <p>
             商品説明：
             <br />
             {targetItem.writing_state}
-          </StyledWritingState>
-        </StyledDataList>
+          </p>
+        </div>
       )}
-    </div>
+    </StyledDataList>
   );
 };
 
@@ -56,6 +55,10 @@ const StyledDataList = styled.div`
   color: #333333;
   border-radius: 5px;
   font-size: 12px;
+  width: 60%;
+  @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+    width: 100%;
+  }
 `;
 
 const StyledName = styled.h2`
@@ -72,9 +75,5 @@ const StyledPrice = styled.h3`
     margin-left: 10px;
   }
 `;
-const StyledSellerId = styled.p``;
-const StyledCondition = styled.p``;
-const StyledReceivableCampus = styled.p``;
-const StyledWritingState = styled.p``;
 
 export default DataList;
