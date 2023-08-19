@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import BREAKPOINT from "../../../variables/breakpoint";
-const Item = () => {
+const Goods = () => {
   return (
     <StyledItem>
       <ImgBox>
@@ -73,4 +73,4 @@ const ImgPrice = styled.div`
     }
   }
 `;
-export default Item;
+export default Goods;
