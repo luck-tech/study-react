@@ -40,6 +40,7 @@ const StyledUser = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
+  margin-right: 10px;
 `;
 
 const StyledUserName = styled.div`

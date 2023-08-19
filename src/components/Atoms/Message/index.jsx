@@ -31,7 +31,7 @@ const Message = () => {
 
 const StyledMessage = styled.p`
   padding: 5px;
-  background-color: #f3f0ec;
+  background-color: #e8e8e8;
   border-radius: 5px;
   margin: 0;
   font-size: 12px;
