@@ -6,7 +6,7 @@ export default {
   title: "Pages/MainPage",
   parameters: {
     backgrounds: {
-      default: "dark",
+      default: "light",
     },
   },
 };

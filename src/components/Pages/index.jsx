@@ -17,7 +17,9 @@ const MainPage = () => {
   );
 };
 
-const StyledMainPage = styled.div``;
+const StyledMainPage = styled.div`
+  margin: 20px;
+`;
 const StyledItemInformation = styled.div`
   display: flex;
   justify-content: center;
