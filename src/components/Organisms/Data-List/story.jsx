@@ -3,7 +3,7 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "Data-List",
+  title: "Molecules/Data-List",
   parameters: {
     backgrounds: {
       default: "dark",
