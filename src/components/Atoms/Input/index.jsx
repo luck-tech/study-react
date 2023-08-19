@@ -35,7 +35,7 @@ const StyledInput = styled.div`
     }
     > img {
       width: 30px;
-      height: 30px;
+      height: 100%;
     }
   }
 `;

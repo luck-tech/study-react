@@ -3,10 +3,10 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "Atoms/Message",
+  title: "Organisms/Comment",
   parameters: {
     backgrounds: {
-      default: "dark",
+      default: "light",
     },
   },
 };
