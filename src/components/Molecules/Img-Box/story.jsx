@@ -3,7 +3,7 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "Item-Img",
+  title: "Molecules/Item-Img",
   parameters: {
     backgrounds: {
       default: "dark",

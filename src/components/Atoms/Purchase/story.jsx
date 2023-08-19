@@ -3,7 +3,7 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "Purchase",
+  title: "Atoms/Purchase",
   parameters: {
     backgrounds: {
       default: "dark",

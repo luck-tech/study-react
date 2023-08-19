@@ -3,7 +3,7 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "Buttons",
+  title: "Molecules/Buttons",
   parameters: {
     backgrounds: {
       default: "dark",
