@@ -26,6 +26,7 @@ const StyledGood = styled.div`
     border: transparent;
     border-radius: 50%;
     transition: 0.2s ease;
+    background-color: #ffffff;
   }
 `;
 
