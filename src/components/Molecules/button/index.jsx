@@ -13,28 +13,39 @@ const Button = () => {
 };
 
 const StyledButton = styled.div`
-  z-index: 2;
-  background-color: #dbd6d6;
   color: #4b4b4b;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   position: fixed;
   z-index: 1;
   border-radius: 90px;
   font-size: 25px;
-  height: 75px;
-  width: 75px;
+  text-align: end;
   bottom: 50px;
   right: 50px;
   text-align: end;
-
+  @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+    bottom: 30px;
+    right: 30px;
+  }
+  > img {
+    @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+      width: 65px;
+      height: 65px;
+    }
+  }
   > div {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #4b4b4b;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
     line-height: normal;
+    @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+      font-size: 10px;
+      top: 65%;
+    }
   }
 `;
 export default Button;

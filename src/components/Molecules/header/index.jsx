@@ -7,8 +7,9 @@ const Header = () => {
   return (
     <StyledHeader>
       <BookIcons>
-        <img src="../../../assets/book.png" alt="search" />
+        <img class="book" src="../../../assets/book.png" alt="search" />
         <p>CampusBookTrade</p>
+        <img class="icon" src="../../../assets/icon.png" alt="icon image" />
       </BookIcons>
       <Form>
         <input class="search-bar" placeholder="なにをお探しですか？" />
@@ -18,14 +19,14 @@ const Header = () => {
           alt="search"
         />
       </Form>
-      <img class="icon" src="../../../assets/user.png" alt="icon image" />
+      <img class="icon" src="../../../assets/icon.png" alt="icon image" />
     </StyledHeader>
+   
   );
 };
 
 const StyledHeader = styled.div`
   background-color: white;
-  background-color: $white;
   margin-bottom: 103px;
   position: sticky;
   top: 0;
@@ -33,18 +34,20 @@ const StyledHeader = styled.div`
   align-items: center;
   gap: 45px;
   z-index: 1;
- @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+  @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
     padding-bottom: 20px;
+    flex-direction: column;
+    display: block;
     margin: 0;
   }
   .icon {
-    width: 100px;
-    height: 100px;
-    border: 1.5px solid;
-    border-radius: 50%;
-   @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+    width: 150px;
+    height: 150px;
+
+    @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
       width: 50px;
       height: 50px;
+      display: none;
     }
   }
 `;
@@ -54,18 +57,31 @@ const BookIcons = styled.div`
   display: flex;
   align-items: center;
   margin-top: 17px;
+  margin-left: 51px;
   margin-bottom: 17px;
-  > i {
-    height: 100px;
-    width: 100px;
+  @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+    margin:17px 10px;
+
+  }
+  .book {
+    @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+      height: 50px;
+      width: 50px;
+    }
   }
   > p {
     color: #6f3f1a;
     font-size: 32px;
     text-align: center;
     margin: 0;
-   @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+    @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
       font-size: 18px;
+    }
+  }
+  .icon{
+    display: none;
+    @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+      display: block;
     }
   }
 `;
@@ -73,6 +89,7 @@ const BookIcons = styled.div`
 const Form = styled.div`
   display: flex;
   width: 100%;
+  
   > input {
     padding: 5px 0 5px 15px;
     border-width: 1.5px;

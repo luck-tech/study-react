@@ -12,6 +12,7 @@ const catalogPage = () => {
       <Header />
       <Button />
       <Recommendation />
+      
     </StyledCatalogPage>
   );
 };
@@ -19,5 +20,6 @@ const catalogPage = () => {
 const StyledCatalogPage = styled.div`
   background-color: white;
 `;
+
 
 export default catalogPage;

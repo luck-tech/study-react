@@ -35,6 +35,11 @@ const ImgBox = styled.div`
     width: 100%;
     border-radius: 10px;
     background-color: beige;
+    @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
+    margin: 0px;
+    border: 1px solid;
+    border-color: white;
+  }
   }
 `;
 
@@ -70,6 +75,7 @@ const ImgPrice = styled.div`
     margin: 0;
     @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
       margin-bottom: 8px;
+      font-size: 10px;
     }
   }
 `;
