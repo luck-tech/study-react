@@ -26,20 +26,22 @@ const StyledItem = styled.div`
     border-color: white;
   }
 `;
-
 const ImgBox = styled.div`
   position: relative;
+  padding: 10px 10px;
+  background-color: #F3F0EC;
+  border-radius: 5px;
   > img {
     object-fit: contain;
     box-sizing: content-box;
     width: 100%;
-    border-radius: 10px;
-    background-color: beige;
+    background-color: white;
+
     @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
-    margin: 0px;
-    border: 1px solid;
-    border-color: white;
-  }
+      margin: 0px;
+      border: 1px solid;
+      border-color: white;
+    }
   }
 `;
 
