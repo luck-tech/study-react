@@ -61,7 +61,7 @@ const Comment = () => {
       <StyledChatting>
         <StyledMessage>
           <User />
-          {targetItem && <p>もう少し安くなりませんか？{targetItem.comment}</p>}
+          {targetItem && <p>{targetItem.comment}</p>}
         </StyledMessage>
       </StyledChatting>
       <StyledInput>
