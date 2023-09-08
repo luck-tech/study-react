@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import BREAKPOINT from "../../../variables/breakpoint";
-const Header = () => {
+import Recommendation from "../recommendation";
+const Header = ({ products, setSearchedProducts }) => {
   // const [data, setData] = useState([]);
-  const [showPosts, setShowPosts] = useState([]);
   const [inputValue, setInputValue] = useState("");
   // const targetItemId = "1"; // 表示したいアイテムのid
 
@@ -26,46 +26,12 @@ const Header = () => {
   //     console.error("データの取得に失敗しました。", error);
   //   }
   // };
-  const products = [
-    {
-      id: "1",
-      name: "商品1",
-      price: 1500,
-      imageUrl: "../../assets/ex_text.png",
-    },
-    {
-      id: "2",
-      name: "商品2",
-      price: 2000,
-      imageUrl: "../../assets/image 11.png",
-    },
-    {
-      id: "3",
-      name: "商品3",
-      price: 2000,
-      imageUrl: "../../assets/38014.png",
-    },
-    {
-      id: "4",
-      name: "商品4",
-      price: 2000,
-      imageUrl: "../../assets/38015.png",
-    },
-    {
-      id: "5",
-      name: "商品5",
-      price: 2000,
-      imageUrl: "../../assets/38016.png",
-    },
-  ];
 
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInputValue(value);
     search(value);
   };
-
-  const [searchedProducts, setSearchedProducts] = useState([]);
 
   const search = (value) => {
     const searchedProducts = products.filter(
@@ -76,7 +42,7 @@ const Header = () => {
     );
     console.log("Search function called with value:", value);
     if (value === "") {
-      setSearchedProducts(searchedProducts);
+      setSearchedProducts(products); // すべての商品を表示
       return;
     }
     console.log("Searched products:", searchedProducts);

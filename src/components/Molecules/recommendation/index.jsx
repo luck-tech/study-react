@@ -5,39 +5,8 @@ import Goods from "../../Atoms/goods";
 import CatalogPage from "../../Organisms/catalogPage";
 import Header from "../header";
 
-const Recommendation = () => {
-  const products = [
-    {
-      id: "1",
-      name: "商品1",
-      price: 1500,
-      imageUrl: "../../assets/ex_text.png",
-    },
-    {
-      id: "2",
-      name: "商品2",
-      price: 2000,
-      imageUrl: "../../assets/image 11.png",
-    },
-    {
-      id: "3",
-      name: "商品3",
-      price: 2000,
-      imageUrl: "../../assets/38014.png",
-    },
-    {
-      id: "4",
-      name: "商品4",
-      price: 2000,
-      imageUrl: "../../assets/38015.png",
-    },
-    {
-      id: "5",
-      name: "商品5",
-      price: 2000,
-      imageUrl: "../../assets/38016.png",
-    },
-  ];
+const Recommendation = ({ products, searchedProducts }) => {
+  console.log(searchedProducts);
   // const searchedProducts = products.filter(
   //   (product) =>
   //     product.name &&
@@ -45,21 +14,44 @@ const Recommendation = () => {
   // );
   // console.log("Searched products:", searchedProducts);
   // setSearchedProducts(searchedProducts);
-  return (
-    <StyledRecommendation>
-      {/* searchedProducts に含まれる name に一致する商品だけ表示 */}
-      {products
-        // .filter((product) => searchedProducts.includes(product.name))
-        .map((product) => (
-          <Goods
-            key={product.id}
-            name={product.name}
-            price={product.price}
-            imageUrl={product.imageUrl}
-          />
-        ))}
-    </StyledRecommendation>
-  );
+  if (searchedProducts.length === 0) {
+    return (
+      <StyledRecommendation>
+        {products.map((product) => {
+          console.log("product:", product.name); // 商品名をデバッグ出力
+          return (
+            <Goods
+              key={product.id}
+              name={product.name}
+              price={product.price}
+              imageUrl={product.imageUrl}
+            />
+          );
+        })}
+      </StyledRecommendation>
+    );
+  } else{
+    return (
+      <StyledRecommendation>
+        {products
+          .filter((product) =>
+            searchedProducts.some((searchedProduct) =>
+              product.name.includes(searchedProduct)
+            )
+          )
+          .map((product) => {
+            console.log("product:", product.name); // 商品名をデバッグ出力
+            return (
+              <Goods
+                key={product.id}
+                name={product.name}
+                price={product.price}
+                imageUrl={product.imageUrl}
+              />
+            );
+          })}
+      </StyledRecommendation>
+    );}
 };
 
 const StyledRecommendation = styled.div`

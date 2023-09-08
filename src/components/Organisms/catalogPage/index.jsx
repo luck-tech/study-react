@@ -4,7 +4,6 @@ import BREAKPOINT from "../../../variables/breakpoint";
 import Header from "../../Molecules/header";
 import Recommendation from "../../Molecules/recommendation";
 import Button from "../../Molecules/button";
-
 const CatalogPage = () => {
   const products = [
     {
@@ -38,21 +37,28 @@ const CatalogPage = () => {
       imageUrl: "../../assets/38016.png",
     },
   ];
-
-  const [searchValue, setSearchValue] = useState("");
-  const displayedProducts = searchValue
-    ? products.filter(
-        (product) =>
-          product.name &&
-          product.name.toLowerCase().includes(searchValue.toLowerCase())
-      )
-    : products;
+  const [searchedProducts, setSearchedProducts] = useState([]);
+  // const [searchValue, setSearchValue] = useState("");
+  // const displayedProducts = searchValue
+  //   ? products.filter(
+  //       (product) =>
+  //         product.name &&
+  //         product.name.toLowerCase().includes(searchValue.toLowerCase())
+  //     )
+  //   : products;
   return (
     <StyledCatalogPage>
       {/* HeaderにsearchedProductsとsearchedProductsを渡す */}
-      <Header products={products} />
+      <Header
+        products={products}
+        searchedProducts={searchedProducts}
+        setSearchedProducts={setSearchedProducts}
+      />
       <Button />
-      <Recommendation products={displayedProducts} />
+      <Recommendation
+        products={products}
+        searchedProducts={searchedProducts} /*searchValue={searchValue}*/
+      />
     </StyledCatalogPage>
   );
 };
