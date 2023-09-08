@@ -1,27 +1,110 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import BREAKPOINT from "../../../variables/breakpoint";
-
 const Header = () => {
+  // const [data, setData] = useState([]);
+  const [showPosts, setShowPosts] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  // const targetItemId = "1"; // 表示したいアイテムのid
+
+  // targetItemを関数外で宣言
+  // const targetItem = data.find((item) => item.id === targetItemId);
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://2f338ce1-8358-4109-a88b-929d6bbbcd07.mock.pstmn.io/"
+  //     );
+  //     const jsonData = await response.json();
+  //     setData(jsonData);
+  //     setShowPosts(targetItem ? [targetItem] : []);
+  //   } catch (error) {
+  //     console.error("データの取得に失敗しました。", error);
+  //   }
+  // };
+  const products = [
+    {
+      id: "1",
+      name: "商品1",
+      price: 1500,
+      imageUrl: "../../assets/ex_text.png",
+    },
+    {
+      id: "2",
+      name: "商品2",
+      price: 2000,
+      imageUrl: "../../assets/image 11.png",
+    },
+    {
+      id: "3",
+      name: "商品3",
+      price: 2000,
+      imageUrl: "../../assets/38014.png",
+    },
+    {
+      id: "4",
+      name: "商品4",
+      price: 2000,
+      imageUrl: "../../assets/38015.png",
+    },
+    {
+      id: "5",
+      name: "商品5",
+      price: 2000,
+      imageUrl: "../../assets/38016.png",
+    },
+  ];
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+    search(value);
+  };
+
+  const [searchedProducts, setSearchedProducts] = useState([]);
+
+  const search = (value) => {
+    const searchedProducts = products.filter(
+      (product) =>
+        product.name &&
+        product.name.toString().toUpperCase().indexOf(value.toUpperCase()) !==
+          -1
+    );
+    console.log("Search function called with value:", value);
+    if (value === "") {
+      setSearchedProducts(searchedProducts);
+      return;
+    }
+    console.log("Searched products:", searchedProducts);
+    setSearchedProducts(searchedProducts);
+  };
+
   return (
     <StyledHeader>
       <BookIcons>
-        <img class="book" src="../../../assets/book.png" alt="search" />
+        <img className="book" src="../../../assets/book.png" alt="search" />
         <p>CampusBookTrade</p>
-        <img class="icon" src="../../../assets/icon.png" alt="icon image" />
+        <img className="icon" src="../../../assets/icon.png" alt="icon image" />
       </BookIcons>
       <Form>
-        <input class="search-bar" placeholder="なにをお探しですか？" />
+        <input
+          className="search-bar"
+          placeholder="なにをお探しですか？"
+          onChange={handleInputChange}
+          value={inputValue}
+        />
         <img
-          class="search-mark"
+          className="search-mark"
           src="../../../assets/search.png"
           alt="search"
         />
       </Form>
-      <img class="icon" src="../../../assets/icon.png" alt="icon image" />
+      <img className="icon" src="../../../assets/icon.png" alt="icon image" />
     </StyledHeader>
-   
   );
 };
 
@@ -52,7 +135,6 @@ const StyledHeader = styled.div`
   }
 `;
 
-// Linkコンポーネントにスタイルを適用するためにstyled(Link)を使用
 const BookIcons = styled.div`
   display: flex;
   align-items: center;
@@ -60,8 +142,7 @@ const BookIcons = styled.div`
   margin-left: 51px;
   margin-bottom: 17px;
   @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
-    margin:17px 10px;
-
+    margin: 17px 10px;
   }
   .book {
     @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
@@ -78,7 +159,7 @@ const BookIcons = styled.div`
       font-size: 18px;
     }
   }
-  .icon{
+  .icon {
     display: none;
     @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
       display: block;
@@ -89,7 +170,7 @@ const BookIcons = styled.div`
 const Form = styled.div`
   display: flex;
   width: 100%;
-  
+
   > input {
     padding: 5px 0 5px 15px;
     border-width: 1.5px;
@@ -119,4 +200,5 @@ const Form = styled.div`
     }
   }
 `;
+
 export default Header;

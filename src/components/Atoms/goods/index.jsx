@@ -1,23 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import BREAKPOINT from "../../../variables/breakpoint";
-const Goods = () => {
+
+const Goods = ({ name, price, imageUrl }) => {
+  // const [data, setData] = useState([]);
+  // const targetItemId = "1"; // 表示したいアイテムのid
+  // const url = "http://127.0.0.1:8000/api/items/";
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(url);
+  //     if (!response.ok) {
+  //       throw new Error(`GETリクエストが失敗しました。ステータスコード: ${response.status}`);
+  //     }
+  //     const jsonData = await response.json();
+  //     setData(jsonData);
+  //   } catch (error) {
+  //     console.error("データの取得に失敗しました。", error);
+  //   }
+  // };
+
+  // const targetItem = data.find((item) => item.id === targetItemId);
+
   return (
-    <StyledItem>
+    <StyledGoods>
       <ImgBox>
-        <img src="../../assets/ex_text.png" />
+        <img src={imageUrl} alt="商品画像" />
       </ImgBox>
       <Message>
-        <p>商品名</p>
+        <p>{name}</p>
       </Message>
       <ImgPrice>
-        <p>1000円</p>
+        <p>{`${price}円`}</p>
       </ImgPrice>
-    </StyledItem>
+    </StyledGoods>
   );
 };
+//   return (
+//     <StyledGoods>
+//          {targetItem && (
+//         <div>
+//           <ImgBox>
+//             <img src={targetItem.imageUrl} alt="商品画像" />
+//           </ImgBox>
+//           <Message>
+//             <p>{targetItem.name}</p>
+//           </Message>
+//           <ImgPrice>
+//             <p>{`${targetItem.price}円`}</p>
+//           </ImgPrice>
+//         </div>
+//       )}
+//     </StyledGoods>
+//   );
+// };
 
-const StyledItem = styled.div`
+const StyledGoods = styled.div`
   background-color: white;
   margin: 15px 24px;
   @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
@@ -29,14 +71,14 @@ const StyledItem = styled.div`
 const ImgBox = styled.div`
   position: relative;
   padding: 10px 10px;
-  background-color: #F3F0EC;
+  background-color: #f3f0ec;
   border-radius: 5px;
   > img {
+    height: 250px;
     object-fit: contain;
     box-sizing: content-box;
     width: 100%;
     background-color: white;
-
     @media screen and (max-width: ${BREAKPOINT.MEDIUM}) {
       margin: 0px;
       border: 1px solid;
