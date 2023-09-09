@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import BREAKPOINT from "../../../variables/breakpoint";
 import Recommendation from "../recommendation";
-const Header = ({ products, setSearchedProducts }) => {
+
+const Header = ({ searchValue, setSearchValue }) => {
   // const [data, setData] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  // const [inputValue, setSearchValue] = useState("");
   // const targetItemId = "1"; // 表示したいアイテムのid
 
   // targetItemを関数外で宣言
@@ -29,25 +30,10 @@ const Header = ({ products, setSearchedProducts }) => {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setInputValue(value);
-    search(value);
+    setSearchValue(value);
   };
 
-  const search = (value) => {
-    const searchedProducts = products.filter(
-      (product) =>
-        product.name &&
-        product.name.toString().toUpperCase().indexOf(value.toUpperCase()) !==
-          -1
-    );
-    console.log("Search function called with value:", value);
-    if (value === "") {
-      setSearchedProducts(products); // すべての商品を表示
-      return;
-    }
-    console.log("Searched products:", searchedProducts);
-    setSearchedProducts(searchedProducts);
-  };
+
 
   return (
     <StyledHeader>
@@ -61,7 +47,7 @@ const Header = ({ products, setSearchedProducts }) => {
           className="search-bar"
           placeholder="なにをお探しですか？"
           onChange={handleInputChange}
-          value={inputValue}
+          value={searchValue}
         />
         <img
           className="search-mark"

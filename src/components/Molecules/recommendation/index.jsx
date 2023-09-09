@@ -5,7 +5,7 @@ import Goods from "../../Atoms/goods";
 import CatalogPage from "../../Organisms/catalogPage";
 import Header from "../header";
 
-const Recommendation = ({ products, searchedProducts }) => {
+const Recommendation = ({ searchedProducts }) => {
   console.log(searchedProducts);
   // const searchedProducts = products.filter(
   //   (product) =>
@@ -17,28 +17,13 @@ const Recommendation = ({ products, searchedProducts }) => {
   if (searchedProducts.length === 0) {
     return (
       <StyledRecommendation>
-        {products.map((product) => {
-          console.log("product:", product.name); // 商品名をデバッグ出力
-          return (
-            <Goods
-              key={product.id}
-              name={product.name}
-              price={product.price}
-              imageUrl={product.imageUrl}
-            />
-          );
-        })}
+        検索結果はありませんでした
       </StyledRecommendation>
     );
   } else{
     return (
       <StyledRecommendation>
-        {products
-          .filter((product) =>
-            searchedProducts.some((searchedProduct) =>
-              product.name.includes(searchedProduct)
-            )
-          )
+        {searchedProducts
           .map((product) => {
             console.log("product:", product.name); // 商品名をデバッグ出力
             return (
