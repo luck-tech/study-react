@@ -6,7 +6,7 @@ import send from "../../../assets/ei-send.png";
 const Comment = () => {
   const [data, setData] = useState([]);
   const [newComment, setNewComment] = useState("");
-  const targetItemId = "1"; // 表示したいアイテムのid
+  const targetItemId = "ef408730-0bef-45f9-9c82-61f602d14f87"; // 表示したいアイテムのid
 
   useEffect(() => {
     fetchData();
@@ -14,9 +14,7 @@ const Comment = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://2f338ce1-8358-4109-a88b-929d6bbbcd07.mock.pstmn.io/"
-      );
+      const response = await fetch("https://uni-bo.net/api/items/");
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
@@ -30,16 +28,13 @@ const Comment = () => {
     }
 
     try {
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/comments/create",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ comment: newComment }),
-        }
-      );
+      const response = await fetch("https://uni-bo.net/api/comment/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ comment: newComment }),
+      });
 
       if (response.ok) {
         console.log("Comment submitted successfully");
@@ -70,7 +65,7 @@ const Comment = () => {
           placeholder="コメントする"
           maxLength="50"
           value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
+          onChange={(e) => setNewComment(e.target.value)} //入力したものをvalueにセットする
         />
         <button className="send" onClick={handleCommentSubmit}>
           <img src={send} />

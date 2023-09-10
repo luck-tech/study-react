@@ -5,7 +5,7 @@ import BREAKPOINT from "../../../variables/breakpoint.js";
 
 const DataList = () => {
   const [data, setData] = useState([]);
-  const targetItemId = "1"; // 表示したいアイテムのid
+  const targetItemId = "ef408730-0bef-45f9-9c82-61f602d14f87"; // 表示したいアイテムのid
 
   useEffect(() => {
     fetchData();
@@ -13,9 +13,7 @@ const DataList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://2f338ce1-8358-4109-a88b-929d6bbbcd07.mock.pstmn.io/"
-      );
+      const response = await fetch("https://uni-bo.net/api/items/");
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
@@ -35,7 +33,7 @@ const DataList = () => {
             <span>(別途取引手数料50円を支払う必要があります)</span>
           </StyledPrice>
           <Buttons />
-          <p>出品者：{targetItem.seller_id}</p>
+          <p>出品者：{targetItem.seller}</p>
           <p>本の状態：{targetItem.condition}</p>
           <p>受け取り可能キャンパス：{targetItem.receivable_campus}</p>
           <p>

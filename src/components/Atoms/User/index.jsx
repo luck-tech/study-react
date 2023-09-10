@@ -4,7 +4,7 @@ import icon from "../../../assets/icon.png";
 
 const User = () => {
   const [data, setData] = useState([]);
-  const targetItemId = "1"; // 表示したいアイテムのid
+  const targetItemId = "ef408730-0bef-45f9-9c82-61f602d14f87"; // 表示したいアイテムのid
 
   useEffect(() => {
     fetchData();
@@ -12,9 +12,7 @@ const User = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://2f338ce1-8358-4109-a88b-929d6bbbcd07.mock.pstmn.io/"
-      );
+      const response = await fetch("https://uni-bo.net/api/items/");
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
