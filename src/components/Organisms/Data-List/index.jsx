@@ -39,7 +39,7 @@ const DataList = () => {
           <p>
             商品説明：
             <br />
-            {targetItem.writing_state}
+            {targetItem.description}
           </p>
         </div>
       )}

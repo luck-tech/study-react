@@ -20,21 +20,22 @@ const Chatting = () => {
     }
   };
 
-  const targetItem = data.find((item) => item.id === targetItemId);
+  const targetComment = data.find((item) => item.item_id === targetItemId);
 
   return (
-    <StyledChatting>
+    <div
+      style={{
+        display: targetComment && targetComment.comment ? "block" : "none",
+      }}
+    >
       <StyledMessage>
         <User />
-        {targetItem && <p>もう少し安くなりませんか？{targetItem.comment}</p>}
+        {targetComment && <p>{targetComment.comment}</p>}
       </StyledMessage>
-    </StyledChatting>
+    </div>
   );
 };
 
-const StyledChatting = styled.p`
-  //display: ${(props) => (props.comment ? "block" : "none")};
-`;
 const StyledMessage = styled.p`
   > p {
     padding: 5px;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Purchase from "../../Atoms/Purchase";
-import Good from "../../Atoms/Good";
+/*import Good from "../../Atoms/Good";
 
 const Buttons = () => {
   return (
@@ -12,8 +12,18 @@ const Buttons = () => {
   );
 };
 
+
+
 const StyledButtons = styled.div`
   display: flex;
 `;
+*/
+const Buttons = () => {
+  return (
+    <div>
+      <Purchase />
+    </div>
+  );
+};
 
 export default Buttons;

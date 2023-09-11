@@ -14,7 +14,7 @@ const Comment = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://uni-bo.net/api/items/");
+      const response = await fetch("https://uni-bo.net/api/comment/");
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
@@ -48,17 +48,21 @@ const Comment = () => {
     }
   };
 
-  const targetItem = data.find((item) => item.id === targetItemId);
+  const targetComment = data.find((item) => item.item_id === targetItemId);
 
   return (
     <StyledComment>
       <h2>コメント</h2>
-      <StyledChatting>
+      <div
+        style={{
+          display: targetComment && targetComment.comment ? "block" : "none",
+        }}
+      >
         <StyledMessage>
           <User />
-          {targetItem && <p>{targetItem.comment}</p>}
+          {targetComment && <p>{targetComment.comment}</p>}
         </StyledMessage>
-      </StyledChatting>
+      </div>
       <StyledInput>
         <input
           type="text"
@@ -82,9 +86,6 @@ const StyledComment = styled.div`
   }
 `;
 
-const StyledChatting = styled.p`
-  //display: ${(props) => (props.comment ? "block" : "none")};
-`;
 const StyledMessage = styled.p`
   > p {
     padding: 5px;

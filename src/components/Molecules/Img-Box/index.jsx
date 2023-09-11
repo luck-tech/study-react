@@ -53,6 +53,7 @@ const StyledMainImg = styled.div`
     padding-bottom: 10px;
   }
 `;
+
 const StyledSubImg = styled.div`
   display: flex;
   > img {

@@ -12,7 +12,7 @@ const User = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://uni-bo.net/api/items/");
+      const response = await fetch("https://uni-bo.net/api/comment/");
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
@@ -20,7 +20,7 @@ const User = () => {
     }
   };
 
-  const targetItem = data.find((item) => item.id === targetItemId);
+  const targetUser = data.find((item) => item.item_id === targetItemId);
 
   return (
     <StyledUser>
@@ -29,7 +29,7 @@ const User = () => {
           <img src={icon} />
         </a>
       </StyledUserIcon>
-      {targetItem && <StyledUserName>{targetItem.seller_id}</StyledUserName>}
+      {targetUser && <StyledUserName>{targetUser.user}</StyledUserName>}
     </StyledUser>
   );
 };
@@ -44,6 +44,10 @@ const StyledUser = styled.div`
 const StyledUserName = styled.div`
   color: #000000;
   font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 5ch;
 `;
 
 const StyledUserIcon = styled.div`
