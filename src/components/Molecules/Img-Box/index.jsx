@@ -32,7 +32,6 @@ const ImgBox = () => {
           <StyledSubImg>
             <img src={targetItem.images[1].photo_path} />
             <img src={targetItem.images[2].photo_path} />
-            <img src={targetItem.images[3].photo_path} />
           </StyledSubImg>
         </div>
       )}

@@ -22,15 +22,11 @@ const Purchase = () => {
       console.error("データの取得に失敗しました。", error);
     }
   };
+  console.log(buyer);
 
   return (
     <StyledPurchase>
-      <button
-        className="purchase_button"
-        style={{
-          backgroundColor: buyer === "null" ? "#6f3f1a" : "#d2b48c",
-        }}
-      >
+      <button buyer={buyer} className="purchase_button">
         購入する
       </button>
     </StyledPurchase>
@@ -39,6 +35,7 @@ const Purchase = () => {
 
 const StyledPurchase = styled.div`
   .purchase_button {
+    background-color: ${(props) => (!props.buyer ? "#6f3f1a" : "#d2b48c")};
     border: none;
     color: #f5f5f5;
     border-radius: 4px;
