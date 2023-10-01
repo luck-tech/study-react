@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import BREAKPOINT from "../../../variables/breakpoint";
 
-const Goods = ({ name, price, imageUrl }) => {
+const Goods = ({ name, price, images }) => {
   // const [data, setData] = useState([]);
   // const targetItemId = "1"; // 表示したいアイテムのid
   // const url = "http://127.0.0.1:8000/api/items/";
@@ -29,7 +29,7 @@ const Goods = ({ name, price, imageUrl }) => {
   return (
     <StyledGoods>
       <ImgBox>
-        <img src={imageUrl} alt="商品画像" />
+        <img src={images} alt="商品画像" />
       </ImgBox>
       <Message>
         <p>{name}</p>
@@ -45,7 +45,7 @@ const Goods = ({ name, price, imageUrl }) => {
 //          {targetItem && (
 //         <div>
 //           <ImgBox>
-//             <img src={targetItem.imageUrl} alt="商品画像" />
+//             <img src={targetItem.images} alt="商品画像" />
 //           </ImgBox>
 //           <Message>
 //             <p>{targetItem.name}</p>

@@ -31,7 +31,7 @@ const Recommendation = ({ searchedProducts }) => {
                 key={product.id}
                 name={product.name}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                images={product.images[0].photo_path}
               />
             );
           })}
