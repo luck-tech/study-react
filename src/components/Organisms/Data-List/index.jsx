@@ -21,7 +21,8 @@ const DataList = () => {
     }
   };
 
-  const targetItem = data.find((item) => item.id === targetItemId);
+  const dataArray = Array.from(data);
+  const targetItem = dataArray.find((item) => item.id === targetItemId);
 
   return (
     <StyledDataList>

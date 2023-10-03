@@ -28,11 +28,24 @@ const Comment = () => {
     }
 
     try {
-      const response = await fetch("https://uni-bo.net/api/comment/", {
+      await fetch("https://uni-bo.net/api/auth/jwt/create/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          email: "4622013@ed.tus.ac.jp",
+          password: "testtesttest",
+        }),
+      });
+      const cookies = document.cookie; //HttpOnly属性を持つCookieはこれで取得できない疑惑
+      const response = await fetch("https://uni-bo.net/api/comment/create/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Cookie: cookies, //headerにクッキー(アクセストークンがくっついてる)を含めて送信
+        },
+        //credentials: "include", //ブラウザが持っているクッキーを送信
         body: JSON.stringify({ comment: newComment }),
       });
 
